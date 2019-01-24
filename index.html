@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>message-board</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/jquery.js"></script>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <p class="title">这是一个留言板</p>
+    <div class="area shadow">
+        <p class="area-title">请在这里写下要留言的内容</p>
+        <label for="nickname">昵称</label>
+        <input type="text" name="nickname" id="nickname">
+        <label for="content">留言内容</label>
+        <textarea name="content" id="contnet" cols="80" rows="20"></textarea>
+        <button id="submit" class="shadow">发送</button>
+    </div>
+    <div class="main" id="messages">
+        <messages v-bind:item="message" v-for="message in messagesContent"></messages>
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+</html>
