@@ -1,4 +1,4 @@
-let serverSidePath="http://localhost/message_board/serverSide/messages.php";
+let serverSidePath="http://47.106.250.72/page/message_board/serverSide/messages.php";
 Vue.component('messages',{
     props:['item'],
     template:'<div data-scroll-reveal="enter bottom" class="message shadow"><div class="message-nickname">{{item.nickname}}</div><div class="message-content">{{item.content}}</div><div class="message-time">{{item.time}}</div></div>',
