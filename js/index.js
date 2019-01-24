@@ -1,6 +1,6 @@
 let serverSidePath="http://47.106.250.72/page/message_board/serverSide/messages.php";
 function isEmpty(obj){
-    if(typeof obj == "undefined" || obj == null || obj == ""){
+    if(typeof obj === "undefined" || obj === null || obj === ""){
         return true;
     }else{
         return false;
@@ -17,22 +17,13 @@ let message=new Vue({
         seen:true,
     },
     created:function(){
-        let response;
-        let status;
         $.get(serverSidePath,function(data,sta){
-            response=data;
-            status=sta;
+            let response=JSON.parse(data);
+            message.messagesContent=response.data.messages.reverse();
+            $('#tip').animate({fontSize:'0px',padding:'0px'},300,function(){
+                message.seen=false;
+            });
         })
-        let messageT=setInterval(function(){
-            if(status==='success'){
-                response=JSON.parse(response);
-                message.messagesContent=response.data.messages.reverse();
-                $('#tip').animate({fontSize:'0px',padding:'0px'},300,function(){
-                    message.seen=false;
-                });
-                clearInterval(messageT);
-            }
-        },100)
     },
 })
 let createArea=new Vue({
