@@ -20,9 +20,26 @@ let message=new Vue({
             if(status==='success'){
                 response=JSON.parse(response);
                 message.messagesContent=response.data.messages;
-                console.log(response.data.messages);
                 clearInterval(messageT);
             }
         },100)
+    },
+})
+let createArea=new Vue({
+    el:'#createArea',
+    data:{
+        nickname:null,
+        content:null,
+    },
+    methods: {
+        update:function(e){
+            // createArea.nickname=e.path[0].value;
+            console.log('tag', '')
+        },
+        submit:function(){
+            if(!createArea.nickname||!createArea.content){
+                console.log('fall');
+            }
+        },
     },
 })

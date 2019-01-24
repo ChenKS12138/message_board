@@ -11,13 +11,13 @@
 </head>
 <body>
     <p class="title">这是一个留言板</p>
-    <div class="area shadow">
+    <div class="area shadow"id='createArea'>
         <p class="area-title">请在这里写下要留言的内容</p>
         <label for="nickname">昵称</label>
-        <input type="text" name="nickname" id="nickname">
+        <input type="text" name="nickname" id="nickname" v-bind:value="nickname" v-on:input='update'>
         <label for="content">留言内容</label>
-        <textarea name="content" id="contnet" cols="80" rows="20"></textarea>
-        <button id="submit" class="shadow">发送</button>
+        <textarea name="content" id="contnet" cols="80" rows="20" v-bind:value="content" v-on:input='update'></textarea>
+        <button id="submit" class="shadow" v-on:click="submit">发送</button>
     </div>
     <div class="main" id="messages">
         <messages v-bind:item="message" v-for="message in messagesContent"></messages>
