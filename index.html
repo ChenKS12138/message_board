@@ -17,7 +17,7 @@
         <label for="nickname">昵称</label>
         <input type="text" name="nickname" id="nickname" v-bind:value="nickname" v-on:input='update'>
         <label for="content">留言内容</label>
-        <textarea name="content" id="content" cols="80" rows="20" v-bind:value="content" v-on:input='update'></textarea>
+        <textarea name="content" id="content" v-bind:value="content" v-on:input='update'></textarea>
         <button id="submit" class="shadow" v-on:click="submit">{{buttonText}}</button>
     </div>
     <div data-scroll-reveal="enter bottom"  class="main" id="messages">
