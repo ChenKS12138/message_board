@@ -15,9 +15,9 @@
     <div data-scroll-reveal="enter bottom"  class="area shadow"id='createArea'>
         <p class="area-title">请在这里写下要留言的内容</p>
         <label for="nickname">昵称</label>
-        <input type="text" name="nickname" id="nickname" v-bind:value="nickname" v-on:input='update'>
+        <input type="text" v-bind:placeholder="nicknameTip" name="nickname" id="nickname" v-bind:value="nickname" v-on:input='update'>
         <label for="content">留言内容</label>
-        <textarea name="content" id="content" v-bind:value="content" v-on:input='update'></textarea>
+        <textarea name="content" v-bind:placeholder="contentTip" id="content" v-bind:value="content" v-on:input='update'></textarea>
         <button id="submit" class="shadow" v-on:click="submit">{{buttonText}}</button>
     </div>
     <div data-scroll-reveal="enter bottom"  class="main" id="messages">

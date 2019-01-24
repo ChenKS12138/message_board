@@ -90,3 +90,41 @@ body{
     text-align: center;
     padding: 3rem;
 }
+@media all and (max-width:800px){
+    .title{
+        font-size: 2.3rem;
+    }
+    .area{
+        width: 80%;
+        padding: 1rem;
+    }
+    .area>label{
+        align-self: flex-start;
+    }
+    .area-title{
+        font-size: 1.6rem;
+    }
+    #nickname{
+        width: 100%;
+    }
+    #content{
+        width: 100%;
+        font-size: 1rem;
+    }
+    #submit{
+        width: 100%;
+    }
+    .message{
+        width: 90%;
+    }
+    .message-nickname{
+        font-size: 2.4rem;
+    }
+    .message-content{
+        font-size: 1.8rem;
+        padding: 1rem 0 1rem 0;
+    }
+    .message-time{
+        font-size: 1rem;
+    }
+}
