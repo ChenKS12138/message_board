@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+    outline: none;
 }
 .title{
     width: 100%;
@@ -31,9 +32,11 @@ body{
 #nickname{
     width: 300px;
     height: 30px;
+    border-radius: 8px;
 }
-#contnet{
+#content{
     font-size: 4px;
+    border-radius: 8px;
 }
 #submit{
     background-color: snow;
@@ -45,6 +48,7 @@ body{
     margin-bottom: 1rem;
     cursor: pointer;
     border-radius: 10px;
+    font-size: 1.3rem;
 }
 .main{
     display: flex;
@@ -62,6 +66,7 @@ body{
     border-radius: 10px;
     color: snow;
     margin-top: 1rem;
+    cursor: pointer;
 }
 .message-nickname{
     font-size: 3rem;
@@ -70,10 +75,15 @@ body{
     font-size: 2rem;
 }
 .message-time{
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     align-self: flex-end;
     margin-right: 2rem;
 }
 .shadow{
     box-shadow: 1px 5px 3px rgba(0, 0, 0, 0.3);
+}
+.tip{
+    font-size: 3rem;
+    text-align: center;
+    padding: 3rem;
 }

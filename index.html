@@ -8,20 +8,38 @@
     <link rel="stylesheet" href="./css/index.css">
     <script src="./js/jquery.js"></script>
     <script src="./js/vue.js"></script>
+    <script src="./js/scrollReveal.js"></script>
 </head>
 <body>
-    <p class="title">这是一个留言板</p>
-    <div class="area shadow"id='createArea'>
+    <p  data-scroll-reveal="enter bottom"  class="title">这是一个留言板</p>
+    <div data-scroll-reveal="enter bottom"  class="area shadow"id='createArea'>
         <p class="area-title">请在这里写下要留言的内容</p>
         <label for="nickname">昵称</label>
         <input type="text" name="nickname" id="nickname" v-bind:value="nickname" v-on:input='update'>
         <label for="content">留言内容</label>
-        <textarea name="content" id="contnet" cols="80" rows="20" v-bind:value="content" v-on:input='update'></textarea>
-        <button id="submit" class="shadow" v-on:click="submit">发送</button>
+        <textarea name="content" id="content" cols="80" rows="20" v-bind:value="content" v-on:input='update'></textarea>
+        <button id="submit" class="shadow" v-on:click="submit">{{buttonText}}</button>
     </div>
-    <div class="main" id="messages">
-        <messages v-bind:item="message" v-for="message in messagesContent"></messages>
+    <div data-scroll-reveal="enter bottom"  class="main" id="messages">
+        <p data-scroll-reveal="enter bottom"  class="tip" id="tip" v-if="seen">留言正在疯狂加载中。。。。</p>
+        <messages  data-scroll-reveal="enter bottom"  v-bind:item="message" v-for="message in messagesContent"></messages>
     </div>
     <script src="./js/index.js"></script>
+    <script> 
+        // 调用scrollReveal.js
+        var config = {
+            after: '0.1s',
+            enter: 'bottom',
+            move: '200px',
+            over: '0.5s',
+            easing: 'ease-in-out',
+            viewportFactor: 0.1,
+            reset: false,
+            init: true,
+            delay:300,
+            mobile: false,
+        };
+        window.scrollReveal = new scrollReveal(config);
+    </script>
 </body>
 </html>
