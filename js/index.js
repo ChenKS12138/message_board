@@ -53,16 +53,31 @@ let createArea=new Vue({
                 alert('昵称和留言内容都要写哦');
             }
             else{
-                createArea.buttonText="正在发送中";
-                localStorage.removeItem('tmpNickname');
-                localStorage.removeItem('tmpContent');
-                $.post(serverSidePath,{
-                    'nickname':createArea.nickname,
-                    'content':createArea.content,
-                },function(data,sta){
-                    alert('留言成功!!');
-                    location.reload();
+                const dirtyList=['孙','爹','爸','爷','儿'];
+                let sum=dirtyList.length;
+                dirtyList.forEach(function(value,index){
+                    if(createArea.content.indexOf(value)===-1){
+                        sum --;
+                    }
                 })
+                console.log(sum);
+                if(sum===0){
+                    createArea.buttonText="正在发送中";
+                    localStorage.removeItem('tmpNickname');
+                    localStorage.removeItem('tmpContent');
+                    $.post(serverSidePath,{
+                        'nickname':createArea.nickname,
+                        'content':createArea.content,
+                    },function(data,sta){
+                        createArea.buttonText="发送成功";
+                        setInterval(function(){
+                            location.reload();
+                        },1000);
+                    })
+                }
+                else{
+                    alert('您的留言中可能还有不合法的语句,请您检查后重新发送');
+                }
             }
         },
     },
