@@ -36,10 +36,17 @@ let createArea=new Vue({
         contentTip:"请写下您留言的内容。即使网页意外关闭，您的内容也是可以恢复的",
     },
     methods: {
+      /**
+       * 
+       * @param {*} e 
+       * 1. 一般监听 input 变化的时候用 target 或者 currentTarget 里的东西
+       *    所以你的会在 safari 里报错，各个浏览器兼容性不太一样
+       * 2. 然后不同的 input 一般是不复用的 你可以分两个 update 来写
+       */
         update:function(e){
             console.log(e);
             let id=e.srcElement.id;
-            let value=e.path[0].value;
+            let value=e.target.value;
             if(id==='nickname'){
                 createArea.nickname=value;
                 localStorage.setItem('tmpNickname',value);
