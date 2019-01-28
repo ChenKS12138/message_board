@@ -37,6 +37,7 @@ let createArea=new Vue({
     },
     methods: {
         update:function(e){
+            console.log(e);
             let id=e.srcElement.id;
             let value=e.path[0].value;
             if(id==='nickname'){
@@ -47,9 +48,9 @@ let createArea=new Vue({
                 createArea.content=value;
                 localStorage.setItem('tmpContent',value);
             }
-        },
+        },//使用update只有在chrome下才可以
         submit:function(){
-            if(!createArea.nickname||!createArea.content){
+            if(0){
                 alert('昵称和留言内容都要写哦');
             }
             else{
